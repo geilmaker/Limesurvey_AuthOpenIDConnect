@@ -1,5 +1,14 @@
 # AuthOpenIDConnect - LimeSurvey Auth Plugin
 
+## Added
+Compared to the main project by [Jan Menzel](https://github.com/janmenzel/AuthOpenIDConnect), I tested the plugin with Limesurvey v5 (5.6.7) and it works just fine. I also added a feature, that a user needs to have a specific role to login. This feature can be de-/activated and the role and claim Name can be adjusted. I need this feature myself, because I use keycloak and dont want everybody in my realm to access limesurvey, only the ones who got the keycloak group to access limesurvey. 
+
+<img src="https://user-images.githubusercontent.com/34423885/221330345-f4716c68-183b-43d3-a452-8ae10094bfaf.png" width="700" />
+
+So my userinfo Token looks like this:
+
+<img src="https://user-images.githubusercontent.com/34423885/221330453-95675540-b0f5-462e-8a4d-d3b05ce78414.png" width="300" />
+
 ## Disclaimer
 This plugin is **not maintained** by me anymore.\
 Feel free to create a fork if you would like to customize it.
@@ -26,3 +35,5 @@ zip -r AuthOpenIDConnect AuthOpenIDConnect/*
 
 ## Credits
 Thanks to Michael Jett for providing the [OpenID Connect Client](https://github.com/jumbojett/OpenID-Connect-PHP)!
+
+Thanks to Jan Menzel for providing the [AuthOpenIDConnect](https://github.com/janmenzel/AuthOpenIDConnect) plugin!
