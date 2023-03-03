@@ -65,8 +65,10 @@
             $this->subscribe('afterLogout');
 	}
 
-        public function beforeActivate(){
-            $baseURL = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}";
+        public function beforeActivate() {
+            $https = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on';
+            $forwardedProto = !empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https';
+            $baseURL = 'http' . ($https || $forwardedProto ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}";
             $basePath = preg_split("/\/pluginmanager/", $_SERVER['REQUEST_URI']);
             $this->set('redirectURL', $baseURL . $basePath[0] . "/authentication/sa/login");
 	}
